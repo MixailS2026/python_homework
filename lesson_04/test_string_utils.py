@@ -43,6 +43,21 @@ def test_trim_spaces_at_start(input_str, expected):
 def test_contains_true(string, symbol):
     assert string_utils.contains(string, symbol) is True
 
+
+# Удаляет все подстроки из переданной строки
+@pytest.mark.positive
+@pytest.mark.parametrize(
+    "string, symbol, expected",
+    [
+        ("Lesson", "L", "esson"),
+        ("Chelyabinsk", "yabinsk", "Chel"),
+        ("07 october 2025", "07 october", " 2025")
+    ],
+)
+def test_delete_symbol_(string, symbol, expected):
+    assert string_utils.delete_symbol(string, symbol) == expected
+
+
 # --- Негативные тесты ---
 
 
